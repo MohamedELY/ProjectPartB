@@ -171,12 +171,12 @@ namespace ProjectPartB_B1
             string theWiner = player1.Highest.CompareTo(player2.Highest) switch
             {
                  1 => "Player1 Wins!",
-                 0 => "Player1 Wins!",
-                -1 => "Player1 Wins!",
+                 0 => "It's a Tie!",
+                -1 => "Player2 Wins!",
                  _ => throw new NotImplementedException()
             };
             //Print out the winner.
-            Console.WriteLine(theWiner);
+            Console.WriteLine(theWiner + "\n");
         }
         //Done
     }
