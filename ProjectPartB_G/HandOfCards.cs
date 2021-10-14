@@ -8,21 +8,27 @@ namespace ProjectPartB_B1
 {
     class HandOfCards : DeckOfCards, IHandOfCards
     {
+        //Creating a array of Playingcards 
         protected const int MaxCardsInHand = 5;
-        protected List<PlayingCard> CardsInHand = new List<PlayingCard>(MaxCardsInHand);
+        protected List<PlayingCard> cardsInHand = new List<PlayingCard>(MaxCardsInHand);
 
-        #region Count Properte and Clear Method
+        #region Count, Clear and Sort 
         /// <summary>
         /// Returns a number that represents how many elements the list has.
         /// </summary>
         /// <value>
         /// int number.
         /// </value>      
-        public override int Count => CardsInHand.Count;
+        public override int Count => cardsInHand.Count;
+        public override void Sort()
+        {
+            cardsInHand = cardsInHand.OrderBy(c => c.Color).ToList();
+            cardsInHand = cardsInHand.OrderBy(v => v.Value).ToList();
 
+        }//Done
         public override void Clear()
         {
-            CardsInHand.Clear();
+            cardsInHand.Clear();
         }//Done 
         #endregion
         //Done
@@ -42,10 +48,10 @@ namespace ProjectPartB_B1
             for (int i = 0; i < Count; i++)
             {
                 //If the card is not null...
-                if (CardsInHand[i] != null)
+                if (cardsInHand[i] != null)
                 {
                     //Add the card to the string thats going to be returnd
-                    sRet += String.Format("{0,-10}", CardsInHand[i].ToString());
+                    sRet += String.Format("{0,-10}", cardsInHand[i].ToString());
                 }
 
             }//Return string
@@ -57,10 +63,8 @@ namespace ProjectPartB_B1
         #region Pick and Add related
         public void Add(PlayingCard card)
         {
-            CardsInHand.Add(card);
+            cardsInHand.Add(card);
         }
-
-        // todo Fix so the hand gets the card
         #endregion
         //Done
 
@@ -69,17 +73,22 @@ namespace ProjectPartB_B1
         {
             get
             {
-               return null;
+                cardsInHand.Sort();
+                return cardsInHand[cardsInHand.Count - 1];
             }
-         }
+        }
+        //Done
+
         public PlayingCard Lowest
         {
             get
             {
-               return null;
+                cardsInHand.Sort();
+                return cardsInHand[0];
             }
         }
+        //Done
         #endregion
-        // ! Not Done
+        //Done
     }
 }

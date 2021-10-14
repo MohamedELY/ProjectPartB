@@ -34,7 +34,8 @@ namespace ProjectPartB_B1
             HandOfCards player1 = new HandOfCards();
             HandOfCards player2 = new HandOfCards();
 
-            //todo Your code to play the game comes here.
+            // Your code to play the game comes here.
+
             Console.WriteLine("\nLet's play a game of highest card with two players.");
             //Creating two int's that will hold the value of the user unput  
             int amountOfCards = 0;
@@ -64,12 +65,12 @@ namespace ProjectPartB_B1
 
                 //Print the card info the player is holding.
                 Console.WriteLine($"Player1's hand with {amountOfCards} card's");
-                // todo Type players highest and lowest card
+                Console.WriteLine($"Lowest card in hand is {player1.Lowest} and highest is {player1.Highest}");
                 Console.WriteLine(player1 + "\n");
 
                 //Print the card info the player is holding.
                 Console.WriteLine($"Player2's hand with {amountOfCards} card's");
-                // todo Type players highest and lowest card
+                Console.WriteLine($"Lowest card in hand is {player2.Lowest} and highest is {player2.Highest}");
                 Console.WriteLine(player2 + "\n");
 
                 //check which player won the round.
@@ -165,8 +166,18 @@ namespace ProjectPartB_B1
         /// <param name="player1">Player 1</param>
         /// <param name="player2">Player 2</param>
         private static void DetermineWinner(HandOfCards player1, HandOfCards player2)
-        { 
-            // todo Snart vi är klara brääääääää
+        {
+            //Switch case expresion that will assign the "theWinner" string diffrently depending on who won.
+            string theWiner = player1.Highest.CompareTo(player2.Highest) switch
+            {
+                 1 => "Player1 Wins!",
+                 0 => "Player1 Wins!",
+                -1 => "Player1 Wins!",
+                 _ => throw new NotImplementedException()
+            };
+            //Print out the winner.
+            Console.WriteLine(theWiner);
         }
+        //Done
     }
 }

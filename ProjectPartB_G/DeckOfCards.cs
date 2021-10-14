@@ -111,9 +111,11 @@ namespace ProjectPartB_B1
                 cards[index2] = card;
             }
         }//Done
-        public void Sort()
+        public virtual void Sort()
         {
-           this.cards = cards.OrderBy(c => c.Value).ToList();
+            //Sorting the list first by color and the value. 
+            this.cards = cards.OrderBy(c => c.Color).ToList();
+            this.cards = cards.OrderBy(v => v.Value).ToList();
         }//Done
         #endregion
         //Done
