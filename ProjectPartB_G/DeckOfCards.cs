@@ -13,8 +13,10 @@ namespace ProjectPartB_B1
         protected List<PlayingCard> cards = new List<PlayingCard>(MaxNrOfCards);
 
         public PlayingCard this[int idx] => cards[idx];
+        
+        public virtual int Count => NrOfCards();
 
-        public int Count => NrOfCards();
+        #region Diffrent way to count witout the inbuilt list properte.
         public int NrOfCards()
         {
             //Go thrue the deck...
@@ -29,7 +31,9 @@ namespace ProjectPartB_B1
                 }
             }//retuen counter
             return counter;
-        }
+        } 
+        #endregion
+
         #endregion
         //Done
 
@@ -63,7 +67,7 @@ namespace ProjectPartB_B1
             return sRet;
         }//Done
         #endregion
-        //Done 
+        //Done
         
         #region Shuffle and Sorting
         public void Shuffle2(int times = 1)
@@ -115,19 +119,18 @@ namespace ProjectPartB_B1
         //Done
 
         #region Creating a fresh Deck
-        public void Clear()
+        public virtual void Clear()
         {
             cards.Clear();
         }//Done
         public void CreateFreshDeck()
         {
-
             //Creating a whole deck...
             for (int i = 0; i < 4; i++)
             {
                 for (int j = 2; j < 15; j++)
                 {
-                    //Creata a new Card with the value chosen and create it 4 times with diffrent color values, inert the card in to the List.
+                    //Creata a new Card with the color chosen and create it 13 times with diffrent all the values, inert the card in to the List.
                     cards.Add(new PlayingCard((PlayingCardValue)j, (PlayingCardColor)i));
                 }
             }
