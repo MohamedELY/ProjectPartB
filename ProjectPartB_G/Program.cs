@@ -12,6 +12,7 @@ namespace ProjectPartB_B1
             //Creating a new instence of DeckOfCards.
             DeckOfCards myDeck = new DeckOfCards();
 
+            #region Printing, Sorting and Shuffleing the deck
             //Calling upon a method that will initiate myDeck with a fresh deck of cards.
             myDeck.CreateFreshDeck();
             //Print out the cards and the amount of cards.
@@ -28,7 +29,8 @@ namespace ProjectPartB_B1
             myDeck.Shuffle();
             //Print out the cards and the amount of cards.
             Console.WriteLine($"\nA shuffled deck with {myDeck.Count} cards:");
-            Console.WriteLine(myDeck);
+            Console.WriteLine(myDeck); 
+            #endregion
 
             //Creating 2 instances of the HandOfCards Class.
             HandOfCards player1 = new HandOfCards();
@@ -36,6 +38,7 @@ namespace ProjectPartB_B1
 
             // Your code to play the game comes here.
 
+            #region Setting up the Game 
             Console.WriteLine("\nLet's play a game of highest card with two players.");
             //Creating two int's that will hold the value of the user unput  
             int amountOfCards = 0;
@@ -45,12 +48,14 @@ namespace ProjectPartB_B1
                         TryReadNrOfRounds(out amountOfRounds);
 
             // If user did not inputing a valid number -> exit program.
-            if (!KeepGoing)            
+            if (!KeepGoing)
                 return;
 
             //Clear the screen.
-            Console.Clear();
+            Console.Clear(); 
+            #endregion
 
+            #region Playing the Game
             //Play for amount of rounds the user chose..
             for (int i = 0; i < amountOfRounds; i++)
             {
@@ -59,7 +64,7 @@ namespace ProjectPartB_B1
 
                 //Deal the cards from the top of the deck to the player's hand's.
                 Deal(myDeck, amountOfCards, player1, player2);
-                
+
                 //print the amount of card's given and cards left int the deck
                 Console.WriteLine($"Gave {amountOfCards} card's each to the player's from the top deck. Deck has now {myDeck.Count} card's\n");
 
@@ -79,7 +84,8 @@ namespace ProjectPartB_B1
                 //Clear's the hand from old card's
                 player1.Clear();
                 player2.Clear();
-            }
+            } 
+            #endregion
 
         }
 
