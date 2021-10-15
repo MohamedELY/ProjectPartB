@@ -11,26 +11,54 @@ namespace ProjectPartB_B2
 		public PlayingCardColor Color { get; init; }
 		public PlayingCardValue Value { get; init; }
 
-		#region IComparable Implementation
-		//Need compare value and color in poker. If values are equal, color determines highest card
-		public int CompareTo(PlayingCard card1)
+        #region IComparable Implementation
+        //Need only to compare value in the project
+        public int CompareTo(PlayingCard card)
         {
-			return 0;
+            int result = 0;
+
+            if (Value < card.Value)
+            {
+                result = -1;
+            }
+            if (Value > card.Value)
+            {
+                result = 1;
+            }
+
+            return result;
         }
-		#endregion
+        //My Constructer 
+        public PlayingCard(PlayingCardValue aValue, PlayingCardColor aColor)
+        {
+            Value = aValue;
+            Color = aColor;
+        }
+        #endregion
+        //Done
 
         #region ToString() related
-		string ShortDescription
-		{
-			//Use switch statment or switch expression
-			//https://en.wikipedia.org/wiki/Playing_cards_in_Unicode
-			get
-			{
-				return "Short Description of the card";
-			}
-		}
+        string ShortDescription
+        {
+            get
+            {   //Switch case that will give the corresponding sign to the card
+                string sRet = Color switch
+                {
+                    PlayingCardColor.Clubs => "\x2663",
+                    PlayingCardColor.Diamonds => "\x2666",
+                    PlayingCardColor.Hearts => "\x2665",
+                    PlayingCardColor.Spades => "\x2660",
+                    _ => throw new NotImplementedException(),
+                };
+                //Adding the value to the string
+                sRet += ($" {Value}");
+                //return the value
+                return sRet;
+            }
+        }
 
-		public override string ToString() => ShortDescription;
+        public override string ToString() => ShortDescription;
         #endregion
+        //Done
     }
 }

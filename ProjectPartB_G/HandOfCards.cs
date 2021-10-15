@@ -25,14 +25,14 @@ namespace ProjectPartB_B1
             cardsInHand = cardsInHand.OrderBy(c => c.Color).ToList();
             cardsInHand = cardsInHand.OrderBy(v => v.Value).ToList();
 
-        }//Done
+        }
         public override void Clear()
         {
             cardsInHand.Clear();
-        }//Done 
+        }
         #endregion
         //Done
-
+        
         #region String related
         /// <summary>
         /// Converts to string.
@@ -56,7 +56,7 @@ namespace ProjectPartB_B1
 
             }//Return string
             return sRet;
-        }//Done 
+        }
         #endregion
         //Done
 
@@ -77,8 +77,6 @@ namespace ProjectPartB_B1
                 return cardsInHand[cardsInHand.Count - 1];
             }
         }
-        //Done
-
         public PlayingCard Lowest
         {
             get
@@ -87,7 +85,6 @@ namespace ProjectPartB_B1
                 return cardsInHand[0];
             }
         }
-        //Done
         #endregion
         //Done
     }

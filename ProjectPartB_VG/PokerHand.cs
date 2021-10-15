@@ -1,18 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ProjectPartB_B2
 {
-    class PokerHand : HandOfCards
-    {
-        #region Clear
-        public override void Clear()
-        { }
-        #endregion
+    class PokerHand : HandOfCards, IPokerHand
+    {       
 
         #region Remove and Add related
         public override void Add(PlayingCard card)
-        { }
+        {
+            cardsInHand.Add(card);
+        }
+        public override void Clear()
+        {
+            cardsInHand.Clear();
+        }
         #endregion
+        //Done
 
         #region Poker Rank related
         //https://www.poker.org/poker-hands-ranking-chart/
