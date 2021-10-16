@@ -332,56 +332,39 @@ namespace ProjectPartB_B2
             }
         }//Todo
 
+        //Properti that will get the cards Rank using the private bools.
+        private int _pokerHandID 
+        {
+            get
+            {
+                //Clear the fields with the old information.
+                ClearRank();
+
+                //Check for the cards rank.
+                if (IsRoyalFlush) return 9;
+                if (IsStraightFlush) return 8;
+                if (IsFourOfAKind) return 7;
+                if (IsFullHouse) return 6;
+                if (IsFlush) return 5;
+                if (IsStraight) return 4;
+                if (IsThreeOfAKind) return 3;
+                if (IsTwoPair) return 2;
+                if (IsPair) return 1;
+                else return 0;
+            }
+        }
+
+        //Insert the rank and return rank of the hand
         public PokerRank DetermineRank()
         {
-            if (IsRoyalFlush)
-            {
-                return PokerRank.RoyalFlush;
-            }
-            else if (IsStraightFlush)
-            {
-                return PokerRank.StraightFlush;
-            }
-            else if (IsFourOfAKind)
-            {
-                return PokerRank.FourOfAKind;
-            }
-            else if (IsFullHouse)
-            {
-                return PokerRank.FullHouse;
-            }
-            else if (IsFlush)
-            {
-                return PokerRank.Flush;
-            }
-            else if (IsStraight)
-            {
-                return PokerRank.Straight;
-            }
-            else if (IsThreeOfAKind)
-            {
-                return PokerRank.ThreeOfAKind;
-            }
-            else if (IsTwoPair)
-            {
-                return PokerRank.TwoPair;
-            }
-            else if (IsPair)
-            {
-                return PokerRank.Pair;
-            }
-            else
-            {
-                return PokerRank.Unknown;
-            }
+            _rank = (PokerRank)_pokerHandID;
+            return Rank;
         }
 
         //Clear rank
         private void ClearRank()
         {
             _rankHigh = null;
-            _rankHighPair1 = null;
-            _rankHighPair2 = null;
             _rank = PokerRank.Unknown;
         }
         #endregion

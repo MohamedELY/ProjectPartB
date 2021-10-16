@@ -12,7 +12,7 @@ namespace ProjectPartB_B2
     /// </summary>
     public enum PokerRank 
     {  
-        Unknown, 
+        Unknown = -1, 
         HighCard, 
         Pair, 
         TwoPair, 

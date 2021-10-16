@@ -28,6 +28,7 @@ namespace ProjectPartB_B2
             Console.WriteLine($"\nA shuffled deck with {myDeck.Count} cards:");
             Console.WriteLine(myDeck);
             #endregion
+            
 
             PokerHand player = new PokerHand();
             while (myDeck.Count > 5)
@@ -44,7 +45,9 @@ namespace ProjectPartB_B2
                 //Print the card's the player is holding.
                 Console.WriteLine($"Player's hand: {player}");
 
-                //Todo Print the rank value, and highest card.
+                //Determines the rank for the hand and print the info.
+                player.DetermineRank();
+                Console.WriteLine($"Rank is {player.Rank} with rank-high-card {player.RankHiCard}");
                 
                 //Print out how many card's are left in the deck.
                 Console.WriteLine($"Deck has now {myDeck.Count} card's\n");
