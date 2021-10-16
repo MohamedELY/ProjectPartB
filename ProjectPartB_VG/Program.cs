@@ -35,14 +35,21 @@ namespace ProjectPartB_B2
                 //Your code to Give 5 cards to the player and determine the rank
                 //Continue for as long as the deck has at least 5 cards
 
+                //Deal the player 5 cards from the deck.
                 Deal(myDeck, player);
+                
+                //Sorting the card's in the player's hand.(Importent! To make the method's work right!) 
+                player.Sort();
 
-                //Print the card info the player is holding.
+                //Print the card's the player is holding.
                 Console.WriteLine($"Player's hand: {player}");
 
+                //Todo Print the rank value, and highest card.
+                
+                //Print out how many card's are left in the deck.
                 Console.WriteLine($"Deck has now {myDeck.Count} card's\n");
 
-                //Clear's the hand from old card's
+                //Clear's the hand from old card's.
                 player.Clear();
             }
         }
