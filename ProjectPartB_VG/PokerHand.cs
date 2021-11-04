@@ -55,7 +55,7 @@ namespace ProjectPartB_B2
                 pairCounter--;
             }
 
-            return pairCounter; 
+            return pairCounter--; 
         }//Done
         private bool IsSameColor()
         {
@@ -330,7 +330,7 @@ namespace ProjectPartB_B2
                 }//Else.. Return fals.
                 return false;
             }
-        }//Todo
+        }//Done
 
         //Properti that will get the cards Rank using the private bools.
         private int _pokerHandID 

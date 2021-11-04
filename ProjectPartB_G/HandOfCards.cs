@@ -32,7 +32,7 @@ namespace ProjectPartB_B1
         }
         #endregion
         //Done
-        
+
         #region String related
         /// <summary>
         /// Converts to string.
